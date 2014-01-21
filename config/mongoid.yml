@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: reports_app
+      hosts:
+        - localhost:27017

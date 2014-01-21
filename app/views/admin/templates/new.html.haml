@@ -1,0 +1,22 @@
+%h5
+ NOTE: Description, Reporter name, Reporter phone, Reporter position,  
+%h5 
+ Conclusions, Submission date and Reviewer are predefined parameters for all templates
+%h5
+ You may add additional ones using this form:  
+%h2
+ New Template
+ %h4
+  Basic fields
+=form_for(:template, url: { action: 'create' }, method: :post) do |f|
+ = f.text_field :title, placeholder: 'Enter Your Template Title here'
+ %br
+ = f.text_area :fields, cols: "50", rows: "5", placeholder: 'Enter titles for new extra fields. They should be separated by commas'
+ %br
+ %h4
+  New Grid(optional):
+ = f.text_field :grid_title, placeholder: 'Enter the new grid title here'
+ %br
+ = f.text_area :grid_columns, cols: "50", rows: "5", placeholder: "Enter column names"
+ %br
+ = submit_tag('Submit')
