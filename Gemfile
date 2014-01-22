@@ -35,3 +35,4 @@ end
 gem 'devise'
 gem 'erb2haml'
 gem 'mongoid', github: 'mongoid/mongoid'
+gem 'cancan', github: 'ollym/cancan'

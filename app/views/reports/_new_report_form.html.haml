@@ -1,0 +1,9 @@
+%p
+ = link_to 'Sign out', '/users/sign_out', method: :delete, id: 'signout'
+%h4
+ Select Template in order to create your report
+ %br
+ = select_tag "templates", options_for_select(@templates, "My Wifes"), prompt: 'Select template', include_blank: false
+#new_report_form{ style: 'float:left;width:500px;' }
+#reports_list{ style: 'float:right;width:700px;'}
+ = render partial: 'reports/list', locals: { reports: @reports } 

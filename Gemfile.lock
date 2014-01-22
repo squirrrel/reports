@@ -1,12 +1,18 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: e7166cca28ef89b07a55c99d21a384f096363459
+  revision: e01609ec702d290864bff764137a3007ec7f0e41
   specs:
     mongoid (4.0.0.alpha2)
       activemodel (>= 4.0.0)
       moped (~> 2.0.beta5)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+
+GIT
+  remote: git://github.com/ollym/cancan.git
+  revision: b4285ae43c7c048a26e2c5918bdfc2570d848b67
+  specs:
+    cancan (1.6.8)
 
 GEM
   remote: https://rubygems.org/
@@ -153,6 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan!
   coffee-rails (~> 4.0.0)
   devise
   erb2haml

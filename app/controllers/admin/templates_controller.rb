@@ -1,15 +1,24 @@
 class Admin::TemplatesController < ApplicationController
+	before_action :authenticate_user!
+
 	def new
 	end
 
+	# TODO: reload _list partial only!!
 	def create
 		permitted_params = params.require(:template).permit!
+		
 		Template.create_record(permitted_params)
-		redirect_to action: 'new'
+		
+		redirect_to action: 'index'
 	end
 
 	def index
 		@templates = Template.get_all
+		
+		respond_to do |format|
+			format.js { render 'index.js.erb' }
+		end
 	end
 
 	# TODO: move all the js's to separate files where they belong

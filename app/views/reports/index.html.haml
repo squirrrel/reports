@@ -1,0 +1,5 @@
+= link_to('Reports', { controller: :reports, action: :index }, method: :get, 'content-type' => 'text/javascript', remote: true)
+- if can? :read, @templates
+ = link_to('Templates', { controller: 'admin/templates', action: :index }, method: :get, 'content-type' => 'text/javascript', remote: true)
+#reports_vs_templates
+ = render partial: 'reports/new_report_form', locals: { reports: @reports } 

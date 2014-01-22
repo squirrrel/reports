@@ -1,0 +1,9 @@
+%h4 New Report
+%h5 
+ = @template[:title]
+= form_for(:report, url: { action: 'create', title: @template[:title] }, method: :post) do |f|
+ - @template.each do |k,_|
+  - unless k == 'grids' || k == '_id' || k == 'created_at' || k == 'title'
+   = f.text_area k, cols: "40", rows: "5", placeholder: "#{k}", style: "height:20px;"
+   %br
+ = submit_tag('Submit')
