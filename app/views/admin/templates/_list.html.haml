@@ -5,7 +5,7 @@
    %div{ id: template['title'] } #{template['title']} 
    = link_to('Delete', { action: :destroy, id: template[:_id] }, method: :delete, 'content-type' => 'text/javascript', remote: true)
    = link_to('Edit', { action: :edit, id: template[:_id] }, method: :get, 'content-type' => 'text/javascript', remote: true)
-   = button_tag 'ok', id: 'ok', style: "display:none;"
+   = button_to_function "ok", "update_item('#{template['_id']}', 'admin/templates')", class: "ok", style: "display:none;"
   %table{ style: 'width: 250px' }
    - template.each do |k,_|
     - unless k == 'grids' || k == '_id' || k == 'created_at' 

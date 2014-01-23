@@ -1,0 +1,3 @@
+$('#template_list').html("<%= escape_javascript(render :partial => "list.html.haml", :locals => {:templates => @templates }) %>");
+$('#new_template_form textarea').val('');
+$('#new_template_form input').val('');

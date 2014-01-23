@@ -1,37 +1,15 @@
-== README
+== NOTES FOR REVIEWER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* The project needs number of improvements which could be made with some extra time
 
-Things you may want to cover:
+* Unfortunately, I did not get enough time to implement Twitter Bootstrap on this project
 
-* Ruby version
+* Out of all CRUD operations, Update is the one which is not completed and needs further improvements 
 
-* System dependencies
+* I decided that in such a light app it is better to use cancan view helpers like can? to block a piece of template (in this case 'Templates' link that give access to it) for all users that don't have enough permissions, rather than using authorize! :action, @result_set approach.
 
-* Configuration
+* It is better to add an admin field, holding a boolean value and admin? method to User model, but given it is part of Devise gem and it would require some time to implement it, I decided to steak with the approach that you can see in ability.rb 
 
-* Database creation
+* Originally, I namespaced TemplatesController, but the final application won't reflect it, for I decided to render everything within a single page using ajax. Therefore, url will point to root across all user actions.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-    %div{ id: template[:grids][0][:grid_title] } #{template[:grids][0][:grid_title]}
-    %table{ style: 'cellspacing:0;cellpadding:0;border: 1px solid #DBDBDB;' }
-     %thead
-      %tr
-       %th
-        - template[:grids][0][:grid_columns].each do |column|
-         %td{ style: 'width:50px;'}
-          %div{ id: column } #{column}
+* There is some duplicated code, especially in controllers that could be optimized using concerns approach, allowing to use same action for both of the controllers.

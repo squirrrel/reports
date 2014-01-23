@@ -1,0 +1,2 @@
+$('#reports_list').html("<%= escape_javascript(render :partial => "list.html.haml", :locals => {:report => @reports }) %>");
+$('#new_report_form').empty();

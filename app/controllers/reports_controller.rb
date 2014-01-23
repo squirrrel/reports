@@ -10,12 +10,15 @@ class ReportsController < ApplicationController
   end
 
   def edit
+    render js: "$('div##{params[:id]} div').attr('contenteditable','true');
+    $('input.ok').css('display', 'inline');"
   end
 
   def update
+    render js: "$('input.ok').css('display', 'none');
+                location.reload();"
   end
 
-  # TODO: reload _list partial only!!
   def create
     title = params.permit(:title)
     permitted_params = params.require(:report).permit!
@@ -24,7 +27,11 @@ class ReportsController < ApplicationController
                           .merge(title)
                           .merge(user_id: current_user.id))
     
-    redirect_to action: 'index'
+    @reports = Report.get_all(current_user: current_user.id)
+
+    respond_to do |format|
+      format.js { render 'create.js.erb' }
+    end
   end
 
   def index

@@ -1,4 +1,4 @@
-%div{ style: 'float:left;width:500px;' }
+#new_template_form{ style: 'float:left;width:500px;' }
  %h5
   NOTE: Description, Reporter name, Reporter phone, Reporter position,  
  %h5 
@@ -9,7 +9,7 @@
   New Template
   %h4
    Basic fields
- =form_for(:template, url: { action: 'create' }, method: :post) do |f|
+ =form_for(:template, url: { action: 'create' }, remote:true, method: :post) do |f|
   = f.text_field :title, placeholder: 'Enter Your Template Title here'
   %br
   = f.text_area :fields, cols: "50", rows: "5", placeholder: 'Enter titles for new extra fields. They should be separated by commas'
@@ -21,5 +21,5 @@
   = f.text_area :grid_columns, cols: "50", rows: "5", placeholder: "Enter column names"
   %br
   = submit_tag('Submit')
-%div{ style: 'float:right;width:700px;'}
- = render partial: '/admin/templates/list', locals: {templates: @templates} 
+#template_list{ style: 'float:right;width:700px;' }
+ = render partial: '/admin/templates/list', locals: { templates: @templates } 

@@ -4,10 +4,11 @@
    = report[:title]
    = link_to('Delete', { action: :destroy, id: report[:_id] }, method: :delete, 'content-type' => 'text/javascript', remote: true)
    = link_to('Edit', { action: :edit, id: report[:_id] }, method: :get, 'content-type' => 'text/javascript', remote: true)
+   = button_to_function "ok", "update_item('#{report['_id']}', 'reports')", class: "ok", style: "display:none;"
   %table
    %tbody 
     - report.each do |k,v|
-     - unless k == 'grids' || k == '_id' || k == 'created_at' || k == 'title'
+     - unless k == 'grids' || k == '_id' || k == 'created_at' || k == 'title' || k == 'user_id'
       %tr
        %td
         = k
